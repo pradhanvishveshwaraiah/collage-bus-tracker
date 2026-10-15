@@ -83,14 +83,11 @@ npm run dev
 ```
 Open `http://localhost:3000` (or the port Vite prints in your console).
 
-### Option B: Cloud Sandboxes (StackBlitz, CodeSandbox, Replit)
-Simply import or open the folder; the dev server starts automatically with `npm run dev`.
+### Option B: Deploying to GitHub Pages (No White Screen)
+1. **Push your code to GitHub.**
+2. Go to your repository on GitHub: **Settings** → **Pages**.
+3. Under **Build and deployment**:
+   - **Source**: Select **GitHub Actions** (the provided `.github/workflows/deploy.yml` will automatically build and deploy `dist/` on every push!).
+   - *Alternatively*, if serving from a branch, select branch `main` or `gh-pages` and folder `/dist` (or `/root` if pushing `dist/` contents).
+4. The application uses `base: './'` in `vite.config.ts`, so assets load with relative paths (`./assets/...`) preventing 404 white screens.
 
-### Verification Commands
-```bash
-# Check TypeScript typing
-npm run lint
-
-# Check production build
-npm run build
-```
